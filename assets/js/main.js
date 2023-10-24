@@ -11,7 +11,6 @@ window.addEventListener("load", ()=>{
     let _client = JSON.parse(localStorage.getItem("Cgs_clients"))
     let _game = JSON.parse(localStorage.getItem("Cgs_games"))
     let _cart = JSON.parse(localStorage.getItem("Cgs_cart"))
-    console.log(_client, _game, _cart)
     if(!_client || !_game || !_cart){
         localStorage.setItem("Cgs_clients", JSON.stringify(clients_test))
         localStorage.setItem("Cgs_games", JSON.stringify(games_test))
@@ -95,7 +94,7 @@ function show_cart(){
             let price_iva = (price*0.16)+price
             modal.innerHTML += `
                 <div class="contain_cart">
-                    <button onclick="delete_of_cart(${x})"><img src="../assets/images/trash.svg"></button>
+                    <button onclick="delete_of_cart(${x})"><img src="assets/images/trash.svg"></button>
                     <p>${cart[x].name}</p>
                     <p>$${price}</p>
                     <p>$${price_iva}</p>
@@ -123,7 +122,6 @@ function show_cart(){
                             </div>`
     }
     values = [full_total+i_special, total_cgs]
-    console.log(values);
 }
 
 function delete_of_cart(index){
@@ -146,7 +144,6 @@ function modal_pay(if_cart, index){
     }
     if(if_cart){
         let price = 0
-        console.log("dentro del carrito");
         contain_buy.innerHTML=""
         for (let x = 0; x < cart.length; x++) {
             price = cart[x].price
@@ -166,7 +163,6 @@ function modal_pay(if_cart, index){
     }else{
         let price = games[index].price
         let total = (price*0.16) + (price*0.04) + price
-        console.log("compra unitaria");
         contain_buy.innerHTML=""
         contain_buy.innerHTML += `
                 <div class="contain_pay">
@@ -176,7 +172,6 @@ function modal_pay(if_cart, index){
                 </div><hr>`
         values=[games[index].points]
     }
-    console.log(values);
 }
 
 function select_client(index, type_buy, i_game){
