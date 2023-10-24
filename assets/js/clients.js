@@ -26,7 +26,7 @@ let clients_test = [client1, client2, client3, client4, client5]
 window.addEventListener("load", ()=>{
     try {
         let _client = JSON.parse(localStorage.getItem("Cgs_clients"))
-        if(!_client || !_game){
+        if(!_client){
             localStorage.setItem("Cgs_clients", JSON.stringify(clients_test))
         }
         load_ls()
