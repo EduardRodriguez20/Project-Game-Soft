@@ -10,9 +10,11 @@ let user_buy = ""
 window.addEventListener("load", ()=>{
     let _client = JSON.parse(localStorage.getItem("Cgs_clients"))
     let _game = JSON.parse(localStorage.getItem("Cgs_games"))
-    if(!_client || !_game){
+    let _cart = JSON.parse(localStorage.getItem("Cgs_games"))
+    if(!_client || !_game || !_cart){
         localStorage.setItem("Cgs_clients", JSON.stringify(clients_test))
         localStorage.setItem("Cgs_games", JSON.stringify(games_test))
+        localStorage.setItem("Cgs_cart", JSON.stringify(cart))
     }
     load_ls()
     show_games(games)
